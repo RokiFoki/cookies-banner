@@ -1,4 +1,66 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'variables.scss';
 
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
+
+
+.modal-header {
+    border-bottom-width: 0px;
+    padding: $modal-inner-padding;
+
+    .close {
+        margin-right: -32px;
+        color: $normal-text;
+    }
+}
+
+.modal-footer {
+    border-top-width: 0px;
+    padding: $modal-inner-padding;
+}
+
+.modal-title {
+    padding-top: 0.5em;
+    color: $important-text;
+    font-weight: bold;
+}
+
+.modal-body {
+    font-weight: $normal-text-weight;
+    padding: $modal-inner-padding;
+}
+
+a {
+    text-decoration: none;
+    color: $important-text;
+    text-decoration: underline;
+}
+
+button.btn {
+    font-weight: $normal-text-weight;
+}
+
+/* override bootstrap css */
+.btn-outline-dark:not(:hover) {
+    border-color: $light-text-color;
+}
+
+.custom-switch .custom-control-label {
+    &::before, &::after {
+        cursor: pointer;
+    }
+}
+
+.custom-control-input:checked ~ .custom-control-label::before {
+    background-color: rgb(211, 239, 219);
+    border-color: rgb(211, 239, 219);
+}
+
+.custom-switch .custom-control-input:checked ~ .custom-control-label::after {
+    background-color: map-get($theme-colors, 'primary');
+}
+
+.modal-content {
+    border-radius: 0.7em;
+}

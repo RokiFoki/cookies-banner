@@ -1,0 +1,69 @@
+<div class="header shadow" [class.expanded-header]="customize">
+  <div class="modal-header">
+    <h3 class="modal-title">Can we store cookies?</h3>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body" fxFlexLayout="column">
+    <p>
+      We and our partners use technologies, such as cookies, and process personal data, such as IP addresses and cookie identifiers, to personalise ads and content based on your interests, measure the performance of ads and content, and derive insights about the audiences who saw ads and content. 
+    </p>
+    <p>
+      Click below to consent to the use of this technology and the processing of your personal data for these purposes. You can change your mind and change your consent choices at any time by returning to this site.
+    </p>
+    <p>
+      You can familiarize with our <b><a routerLink="/">Privacy Policy</a></b>
+    </p>
+
+    <div class="actions" fxLayout="row wrap" fxLayoutAlign="space-between">
+      <div fxLayout="row wrap" fxLayoutGap="15px" fxLayoutAlign="center">
+        <button type="button" class="btn btn-primary" (click)="acceptAll()" ngbAutofocus>Accept All</button>
+        <button type="button" class="btn btn-outline-dark" (click)="save()">Save Settings</button>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="center center" ngClass.lt-md="center-button">
+        <span class="btn save-settings-button" (click)="toggleCustomize()">Customize</span>
+        <fa-icon *ngIf="!customize" [icon]="faCaretDown"></fa-icon>
+        <fa-icon *ngIf="customize" [icon]="faCaretUp"></fa-icon>
+      </div>
+  </div>
+  </div>
+</div>
+
+<div class="body" fxLayout="column" fxLayoutGap="20px" *ngIf="config && customize">
+  <div class="card" *ngFor="let accordian of config.accordian">
+    <div class="card-header accordian-heading" [class.show-divider]="accordian.expanded" fxLayout="row" fxLayoutAlign="space-between" (click)="toggleAccordian(accordian)">
+      <div class="custom-control custom-switch">
+        <input type="checkbox" class="custom-control-input" [id]="accordian.CategoyId" [(ngModel)]="accordian.enabled">
+        <label class="custom-control-label" [for]="accordian.CategoyId">{{ accordian.CategoyHeading }}</label>
+      </div>
+      <div fxLayout="column" fxLayoutAlign="center">
+        <fa-icon *ngIf="!accordian.expanded" [icon]="faCaretDown"></fa-icon>
+        <fa-icon *ngIf="accordian.expanded" [icon]="faCaretUp"></fa-icon>
+      </div>
+    </div>
+    <div class="card-body" *ngIf="accordian.expanded">
+      <p>
+        {{ accordian.CategoyText }}
+      </p>
+
+      <div gdColumns="34% 33% 33%" gdGap="8px" class="plugins-table">
+        <b class="plugins-table-header">
+          Plugins
+        </b>
+        <b class="plugins-table-header">
+          Block/Enable
+        </b>
+        <b></b>
+        <ng-container *ngFor="let plugin of accordian.PluginList">
+          <div>{{plugin.ComplianceType}}</div>
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" [id]="plugin.ComplianceTypeID" [(ngModel)]="plugin.enabled">
+            <label class="custom-control-label" [for]="plugin.ComplianceTypeID"></label>
+          </div>
+          <a class="plugin-domain" [href]="plugin.PluginDomain">Go to site</a>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>

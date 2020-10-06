@@ -1,0 +1,72 @@
+@import '../../../variables.scss';
+
+:host {    
+    background-color: rgb(243, 243, 243);
+    border-radius: inherit;
+}
+
+.actions {
+    margin-top: 50px;
+}
+
+.header {
+    background-color: white;
+    border-radius: inherit;
+}
+
+.expanded-header {    
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+button.btn {
+    padding-left: 30px;
+    padding-right: 30px; 
+    margin: 10px 0;
+}
+
+button.btn.save-settings-button {
+    padding-left: 8px; 
+    padding-right: 8px; 
+}
+
+.center-button {
+    margin: auto;
+}
+
+.body {
+    margin-top: 20px;
+    padding: $modal-inner-padding;
+}
+
+.card {
+    padding: 20px 20px 0 20px;
+}
+
+.card-header {
+    background-color: white;
+    padding: 0;
+    padding-bottom: 10px;
+    cursor: pointer;
+}
+
+.card-header:not(.show-divider) {
+    border-width: 0px;
+}
+
+.plugins-table {
+    margin-top: 30px;
+}
+
+.plugins-table-header {
+    color: $important-text;
+}
+
+.accordian-heading {
+    font-weight: bold;
+    color: $important-text;
+}
+
+a.plugin-domain {
+    font-weight: 500;
+}

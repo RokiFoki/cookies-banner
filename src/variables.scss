@@ -1,0 +1,16 @@
+$important-text: rgb(76, 76, 76);
+$normal-text: rgb(150, 150, 150);
+$normal-text-weight: 500;
+
+$light-text-color: rgb(170, 170, 170);
+
+
+/* overriding bootstrap variables */
+$modal-inner-padding: 8px 28px 28px 28px;
+$gray-800: $normal-text;
+$body-color: $normal-text;
+
+$theme-colors: (
+  "primary": #28a745,
+  "success": lightblue
+);
